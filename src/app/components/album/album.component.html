@@ -1,0 +1,117 @@
+<main *ngIf="albumData">
+
+  <header>
+    <div class="header-image-container">
+      <img class="header-image" src="{{albumData.attributes.artwork.url | formatArtworkUrl:500}}" alt="album-art">
+    </div>
+
+    <div class="header">
+      <div
+        class="artwork"
+        [ngStyle]="{'background-image':'url('+(albumData.attributes.artwork.url | formatArtworkUrl:170)+')'}"
+      >
+      </div>
+
+      <div class="album-extras">
+        <div class="track-text">
+          <span class="album-name">{{albumData.attributes.name}}</span>
+          <div>
+            <span
+              *ngIf="!isLibrary && albumData.relationships.artists.data.length"
+              [routerLink]="['/artists', albumData.relationships.artists.data[0].id]"
+              class="artist-name linkable">
+              {{albumData.attributes.artistName}}
+            </span>
+            <span
+              *ngIf="isLibrary || !albumData.relationships.artists.data.length"
+              class="artist-name">
+              {{albumData.attributes.artistName}}
+            </span>
+          </div>
+          <span class="runtime">
+            {{ albumData.attributes.trackCount | i18nPlural: {'=1': '# song', 'other': '# songs'} }} • {{totalDuration | formatMillisecondsToText}}
+          </span>
+        </div>
+
+        <div class="album-button-container">
+          <button
+            aria-label="Play album"
+            class="album-button" mat-raised-button
+            [ngStyle]="buttonStyling"
+            (click)="playAlbum()"
+          >
+            Play
+          </button>
+          <button
+            aria-label="Shuffle album"
+            class="album-button" mat-raised-button
+            [ngStyle]="buttonStyling"
+            (click)="playAlbum(true)"
+          >
+            Shuffle
+          </button>
+          <button
+            aria-label="More"
+            [matMenuTriggerFor]="menu"
+            class="album-button-more" mat-raised-button
+            [ngStyle]="buttonStyling"
+          >
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+
+          <mat-menu #menu="matMenu">
+            <button
+              aria-label="Play next"
+              [ngStyle]="buttonStyling"
+              mat-menu-item
+              (click)="playNext()"
+            >
+              Play Next
+            </button>
+            <button
+              aria-label="Play later"
+              [ngStyle]="buttonStyling"
+              mat-menu-item
+              (click)="playLater()"
+            >
+              Play Later
+            </button>
+            <button
+              *ngIf="!isLibrary"
+              aria-label="Get info"
+              [ngStyle]="buttonStyling"
+              mat-menu-item
+              (click)="getInfo()"
+            >
+              Get Info
+            </button>
+            <button
+              class="copy-link-button"
+              aria-label="Copy link"
+              [ngStyle]="buttonStyling"
+              mat-menu-item
+              (click)="copyLink()"
+            >
+              Copy Link
+            </button>
+          </mat-menu>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <section [ngStyle]="{'background-image': 'linear-gradient(#04060c, ' + bgColor + ' 180%)'}">
+    <div class="tracklist">
+      <app-song
+        *ngFor="let songData of albumData.relationships.tracks.data; let i = index"
+        [songData]="songData"
+        [albumView]="true"
+        (uponPlay)="playSong(i)"
+      >
+      </app-song>
+    </div>
+  </section>
+
+</main>
+<mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>

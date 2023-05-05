@@ -1,0 +1,110 @@
+.outer-container {
+    display: flex;
+    height: 60px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.04);
+    }
+}
+
+.inner-container {
+    overflow: hidden;
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.track-info {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.song-name {
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.secondary-info {
+    display: flex;
+    color: #b3b3b3;
+    font-size: 14px;
+}
+
+.artist-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.album-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.spinner {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.time {
+    color: #b3b3b3;
+    padding-right: 10px;
+    @media screen and (max-width: 599.99px) and (orientation: portrait), (max-width: 959.99px) and (orientation: landscape) {
+        display: none;
+    }
+}
+
+.song-name-container {
+    display: flex;
+    align-items: center;
+}
+
+.explicit {
+    font-size: 14px;
+    height: 14px;
+    width: 14px;
+    padding-left: 6px;
+    color: #b3b3b3;
+}
+
+.track-number {
+    font-size: 16px;
+    width: 35px;
+    text-align: center;
+}
+
+.album-cover {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-left: 10px;
+}
+
+.remove-button {
+    color: #ef9a9a;
+}
+
+.rank {
+    text-align: center;
+    width: 20px;
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+.more-button {
+    @media screen and (max-width: 599.99px) and (orientation: portrait), (max-width: 959.99px) and (orientation: landscape) {
+        visibility: visible !important;
+    }
+}

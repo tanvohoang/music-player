@@ -1,0 +1,25 @@
+.artist-preview-container {
+    // width: calc( 100% - 10px );
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    padding: 5px;
+    height: 22px;
+    outline: none;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.04);
+    }
+}
+
+.artist-name {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

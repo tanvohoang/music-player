@@ -1,0 +1,67 @@
+.sidebar-container {
+    width: 220px;
+    height: 100%;
+    overflow-y: auto;
+    transition: width 0.5s ease-in-out;
+}
+
+.authorize-button {
+    width: 90%;
+    margin-top: 10px;
+    margin-left: 5%;
+    background-color: #1e3264;
+}
+
+mat-icon {
+    padding-right: 10px;
+}
+
+.active-link {
+    color: #69f0ae;
+}
+
+.playlist-dropdown-header {
+    font-size: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.playlist-dropdown {
+    background-color: black;
+}
+
+.playlist-header-text {
+    line-height: 24px;
+}
+
+.playlist-list-item {
+    height: 30px !important;
+}
+
+.playlist-list-item-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.authorize-button-container {
+    width: 100%;
+    height: 56px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+}
+
+.disabled {
+    cursor: default !important;
+    color: rgba(255,255,255,0.3);
+
+    &:hover {
+        background: none;
+        background-color: black;
+    }
+
+    &:focus {
+        background: none;
+    }
+}

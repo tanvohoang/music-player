@@ -1,0 +1,50 @@
+.artist-header {
+    line-height: normal;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    cursor: default;
+}
+
+.artist-name {
+    font-size: 38px;
+    font-weight: 500;
+}
+
+.albums-count {
+    color: #b3b3b3;
+}
+
+.albums-title {
+    cursor: default;
+    line-height: normal;
+    font-size: 18px;
+    font-weight: 500;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+.albums-grid {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(186px, 1fr) );
+    @media screen and (max-width: 599.99px) and (orientation: portrait), (max-width: 959.99px) and (orientation: landscape) {
+        grid-template-columns: repeat( auto-fill, minmax(156px, 1fr) );
+    }
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.outer-container {
+    animation: fadein 0.7s;
+
+    @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+}
+
+.spinner {
+    position: absolute;
+    top: calc( 50% - 50px );
+    left: calc( 50% - 50px );
+}

@@ -1,0 +1,75 @@
+mat-form-field {
+    width: 100%;
+}
+
+.search-box {
+    width: 100%;
+    height: 80px;
+    font-size: 20px;
+}
+
+.outer-container {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: calc( 100% - 20px );
+    animation: fadein 0.3s;
+
+    @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+}
+
+.search-toggle {
+    width: 100%;
+}
+
+.search-results {
+    height: calc( 100% - 80px - 36px - 10px );
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.toggle-button {
+    width: 50%;
+}
+
+::ng-deep.mat-tab-label {
+    width: 25%;
+}
+
+::ng-deep.mat-tab-body-wrapper {
+    height: 100%;
+}
+
+.spinner {
+    margin-top: 50px;
+}
+
+.tabs {
+    width: 100%;
+}
+
+.album-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(186px, 1fr));
+    @media screen and (max-width: 599.99px) and (orientation: portrait), (max-width: 959.99px) and (orientation: landscape) {
+        grid-template-columns: repeat( auto-fill, minmax(156px, 1fr) );
+    }
+    padding-top: 10px;
+}
+
+.song-results {
+    padding-top: 10px;
+}
+
+.artist-results {
+    padding-top: 10px;
+}
+
+.no-results {
+    font-size: 20px;
+    margin-top: 50px;
+}
